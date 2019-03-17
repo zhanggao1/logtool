@@ -16,7 +16,6 @@ func TestBuildHeap(t *testing.T) {
 	}
 	reader := bytes.NewReader([]byte(data))
 	BuildHeap(16, reader)
-	fmt.Println(topNHeap.GetTotalCount())
 	top := topNHeap.Pop()
 	if top.Val != 1024/8-1-16/2+1 {
 		t.Fatalf("Top value expect 120 after build heap get %d", top.Val)
