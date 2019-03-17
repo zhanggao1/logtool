@@ -55,6 +55,8 @@ As a conclusion, the total complexity is O(NlogN) for time complexity and O(N) f
  1. Clone this repo to path $GOPATH/src/github.com
  2. Run make
 
+You can use the sample_log folder for test
+
 ## Bugs
 
 ## TODO
