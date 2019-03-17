@@ -1,5 +1,4 @@
-﻿<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
-# Response time analyse tool 
+﻿# Response time analyse tool 
 
 ## Description:
 
@@ -24,9 +23,9 @@ the output for the tool as follows:
 
 ## Solution
 
-The purpose for this tool is to calculate the 90%, 95% and 99% percentile response, so we can just figure out all the top 10% of the most longest response time. 
-for the numbers of the log files may be very big, we write code with golang to embrace a parallel file read capability easily
-min-heap is used as the data structure to host the top 10% time for its $O(LogN)$ time-complexity for push and pop
+The purpose for this tool is to calculate the 90%, 95% and 99% percentile response, so we can just figure out all the top 10% of the most longest response time,
+For the numbers of the log files may be very big, we write code with golang to embrace a parallel file read capability easily,
+Min-heap is used as the data structure to host the top 10% response time.
 
 ## Steps
 
@@ -45,14 +44,14 @@ percentile and pop the top value as other results:
 ## Performance
 The main performance cost for each step is:
 
- 1. $O(N)$ for read all files N represents for the size of all the valid response time
- 2. $O(1)$
- 3. time complexity is $O(NlogM)$ N represents for the size of all the valid response time, M for the heap size which is 10% * N space complexity is $O(N)$
- 4. $O(1)$
- 5. $O(1)$
- 6. $O(N)$
+ 1. O(N) for read all files N represents for the size of all the valid response time
+ 2. O(1)
+ 3. time complexity is $O(NlogM)$ N represents for the size of all the valid response time, M for the heap size which is 10% * N space complexity is O(N)
+ 4. O(1)
+ 5. O(1)
+ 6. O(N)
 
-As a conclusion, the total complexity is $O(NlogN)$ for time complexity and O(N) for space complexity
+As a conclusion, the total complexity is O(NlogN) for time complexity and O(N) for space complexity
 
 ## Bugs
 
