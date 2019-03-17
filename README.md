@@ -34,11 +34,9 @@ This tool works as follow:
  1. Read all the files in /var/log/httpd/*.log and figure out all the valid response time for READ API, calculated the total size for all the valid response, save all the times to a temporary file
  2. Calculated the heap size based on the total size.
  `max-heap-size = total-size * 10%`
- 3. Build up the min-heap and push all the response time value which is great than the top value of the heap
- 4. Pop value if heap size exceed the max-heap-size
- 5. Pop the top value as the result after push all the data
- 6. Shrink the heap size to the corresponding size for other 
-percentile and pop the top value as other results:
+ 3. Build up the min-heap with max size of max-heap-size, and push all the response time value to the heap, pop node when the heap size is great than max-heap-size
+ 4. Pop the top value as the result after push all the data
+ 5. Shrink the heap size to the corresponding max size for other percentile and pop the top value as result for 
 `new-heap-size = total-size * Y%`
 
 ## Performance
@@ -46,7 +44,7 @@ The main performance cost for each step is:
 
  1. O(N) for read all files N represents for the size of all the valid response time
  2. O(1)
- 3. time complexity is $O(NlogM)$ N represents for the size of all the valid response time, M for the heap size which is 10% * N space complexity is O(N)
+ 3. time complexity is O(NlogM) N represents for the size of all the valid response time, M for the heap size which is 10% * N space complexity is O(N)
  4. O(1)
  5. O(1)
  6. O(N)
