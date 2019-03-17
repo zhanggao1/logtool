@@ -51,6 +51,10 @@ The main performance cost for each step is:
 
 As a conclusion, the total complexity is O(NlogN) for time complexity and O(N) for space complexity
 
+## Install
+ 1. Clone this repo to path $GOPATH/src/github.com
+ 2. Run make
+
 ## Bugs
 
 ## TODO
