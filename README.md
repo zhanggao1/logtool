@@ -53,14 +53,6 @@ The main performance cost for each step is:
 
 As a conclusion, the total complexity is $O(NlogN)$ for time complexity and O(N) for space complexity
 
-## File Struct
-files are organized follows golang convention:
- - **heap/heap.go** 
-	 - file for package heap, provide heap container and related algorithm
- - **main/main.go**
-	 - file for package main provide log file
-   scan and the main process for the tool
-
 ## Bugs
 
 ## TODO
