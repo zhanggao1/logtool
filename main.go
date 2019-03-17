@@ -186,7 +186,6 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	//	var fileFeedChan = make([]chan uint64, 0, 100)
 	var reflectItems = make([]reflect.SelectCase, 0, 100)
 	for _, file := range dir {
 		if file.IsDir() {
@@ -201,7 +200,6 @@ func main() {
 					Dir:  reflect.SelectRecv,
 					Chan: reflect.ValueOf(newFileChan),
 				})
-			//			fileFeedChan = append(fileFeedChan, newFileChan)
 		}
 	}
 	fileForCosts, err := ioutil.TempFile(".", TmpFilePrefix)
